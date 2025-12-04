@@ -369,6 +369,60 @@
         display: block;
       }
     }
+	  /* Mobiel: menu onder logo uitklappen */
+@media (max-width: 767px) {
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff;
+  }
+
+  .header-inner {
+    position: relative;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;       /* direct onder het logo + titel */
+    left: 0;
+    right: 0;
+    display: none;  /* standaard verborgen */
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  /* hamburger-knop zichtbaar op mobiel */
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* Desktop: menu zoals je nu hebt */
+@media (min-width: 768px) {
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    position: static;
+    display: flex !important;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -714,6 +768,7 @@
   </script>
 </body>
 </html>
+
 
 
 
