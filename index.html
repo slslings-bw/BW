@@ -766,8 +766,18 @@
       nav.classList.toggle('open');
     });
   </script>
+	<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.main-nav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('is-open');
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
