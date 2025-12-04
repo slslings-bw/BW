@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bureau Winterkoning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+  .logo-img {
+  height: 80px;       /* past mooi in de navbar */
+  width: auto;
+  display: block;
+}
+
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --primary-blue: #003366;
+      --primary-blue-soft: #0b487a;
+      --card-autumn-leaves: #A98A4A;
+      --card-pine-green: #6E8A3A;
+      --card-blue: #0277bd;
+      --footer-bg: #003366;
+      --border-radius: 16px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.2rem;
+    }
+
+    /* HEADER / NAVBAR */
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.2rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--primary-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary-blue);
+      white-space: nowrap;
+    }
+
+    nav.main-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-link {
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--primary-blue);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(0, 51, 102, 0.06);
+    }
+
+    .nav-link.active {
+      background: var(--primary-blue);
+      color: #ffffff;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--primary-blue);
+    }
+	
+	.nav-link-inline {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  font-size: 1em;
+  font-weight: inherit;
+  text-decoration: underline;
+}
+
+.nav-link-inline:hover {
+  background: none;
+  text-decoration: underline;
+}
+
+.nav-link-inline {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  font-size: 1em;
+  font-weight: inherit;
+  text-decoration: underline;
+  color: #ffffff; /* standaard wit */
+}
+
+.nav-link-inline:hover {
+  background: none;
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+.nav-link-inline:visited {
+  color: #ffffff; /* blijft wit na klikken */
+}
+
+
+    /* HERO (HEADER-FOTO) */
+
+    .hero {
+      width: 100%;
+      border-bottom: 1px solid #e0e0e0;
+      background: #f5f5f5;
+    }
+
+.hero {
+  margin-bottom: 1rem;   /* tussenruimte aanpassen naar smaak */
+}
+
+    .hero img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+	  border-radius: 12px; /* optioneel — oogt mooier tussen cards */
+    }
+
+    @media (min-width: 768px) {
+  .hero-img {
+    height: 320px;
+  }
+}
+
+
+    /* PAGE SECTIONS */
+
+    main {
+      padding: 1.8rem 0 2.5rem;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .page-header {
+      margin-bottom: 1.2rem;
+    }
+
+    .page-header h1 {
+      margin: 0 0 0.4rem;
+      color: var(--primary-blue);
+      font-size: 1.6rem;
+    }
+
+    .page-header p {
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    /* INFO CARDS */
+
+    .info-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin: 1.6rem 0 2.4rem;
+    }
+
+    .card {
+      border-radius: var(--border-radius);
+      padding: 1.2rem 1.3rem;
+      box-shadow: var(--shadow);
+      color: #ffffff;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .card-1 {
+      background: var(--card-autumn-leaves);
+    }
+
+    .card-2 {
+      background: var(--card-blue);
+    }
+
+    .card-3 {
+      background: var(--card-pine-green);
+    }
+
+    @media (min-width: 768px) {
+      .info-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    /* CONTACT BLOK IN CONTACT-PAGINA */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (min-width: 720px) {
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .contact-card {
+      border-radius: var(--border-radius);
+      border: 1px solid #e0e0e0;
+      padding: 1.2rem 1.3rem;
+    }
+
+    .contact-card h2 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      color: var(--primary-blue);
+      font-size: 1.05rem;
+    }
+
+    .contact-card p {
+      margin: 0.25rem 0;
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+
+    footer.main-footer {
+      background: var(--footer-bg);
+      color: #ffffff;
+      padding: 1.7rem 1.2rem 1.3rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-block h3 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .footer-block p {
+      margin: 0.2rem 0;
+    }
+
+    @media (min-width: 720px) {
+      .footer-inner {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .subfooter {
+      background: #ffffff;
+      border-top: 1px solid #e0e0e0;
+      padding: 0.8rem 1.2rem;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #000000;
+    }
+
+    /* MOBILE NAV */
+
+    @media (max-width: 768px) {
+      nav.main-nav {
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-bottom: 1px solid #e0e0e0;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.6rem 1.2rem 0.8rem;
+        gap: 0.2rem;
+        display: none;
+      }
+
+      nav.main-nav.open {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="logo-wrap">
+        <!-- Vervang dit desgewenst door een echte SVG <img> -->
+        <img src="C:\Bureau Winterkoning\Logo\Selectie\Final\Final final\Winterkoning zonder tekst.svg" alt="Logo Bureau Winterkoning" class="logo-img">
+        <div class="logo-text">Bureau Winterkoning</div>
+      </div>
+
+      <button class="nav-toggle" aria-label="Menu openen/sluiten">☰</button>
+
+      <nav class="main-nav">
+        <a href="#home" class="nav-link active" data-page="home">Home</a>
+        <a href="#veldwerk" class="nav-link" data-page="veldwerk">Ecologisch veldwerk</a>
+        <a href="#excursies" class="nav-link" data-page="excursies">Excursies</a>
+        <a href="#vogelreizen" class="nav-link" data-page="vogelreizen">Vogelreizen</a>
+        <a href="#over" class="nav-link" data-page="over">Over</a>
+        <a href="#contact" class="nav-link" data-page="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO / HEADER-FOTO (gedeeld voor alle pagina's) -->
+  <section class="hero">
+    <!-- Vervang de bron door je eigen header-foto -->
+	<div class="container">
+    <img src="C:\Bureau Winterkoning\Website\Camprodon gedraaid 21 op 9.JPG" alt="Natuurlandschap voor Bureau Winterkoning">
+	 </div>
+  </section>
+
+  <!-- PAGINA-INHOUD -->
+  <main class="container">
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+      <div class="page-header">
+        <h1>Home</h1>
+        <p>
+          Bureau Winterkoning helpt organisaties met SNL-monitoring van broedvogels, dagvlinders, sprinkhanen en libellen. Daarnaast organiseer ik excursies en vogelreizen voor particulieren,
+          met aandacht voor gedrag, ecologie en samenhang in het landschap.
+        </p>
+      </div>
+
+      <div class="info-cards">
+        <article class="card card-1">
+          <h2><a href="#veldwerk" class="nav-link nav-link-inline" data-page="veldwerk">Ecologisch veldwerk</a></h2>
+          <p>
+            Inventarisaties van broedvogels, dagvlinders, sprinkhanen en libellen volgens het SNL-protocol, met heldere rapportages als resultaat.
+          </p>
+        </article>
+
+        <article class="card card-2">
+  <h2><a href="#excursies" class="nav-link nav-link-inline" data-page="excursies">Vogelexcursies</a></h2>
+  <p>
+    Ik geef regelmatig vogelexcursies in gebieden waar ik broedvogels tel of andere interessante natuurgebieden.
+    Bekijk de pagina <a href="#excursies" class="nav-link nav-link-inline" data-page="excursies">Excursies</a> voor de agenda.
+  </p>
+</article>
+
+        <article class="card card-3">
+          <h2><a href="#vogelreizen" class="nav-link nav-link-inline" data-page="vogelreizen">Vogelreizen</a></h2>
+          <p>
+            Persoonlijk begeleide vogelreizen naar soortenrijke gebieden, met aandacht
+            voor zowel bijzondere soorten als het grotere verhaal van het landschap.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ECOLOGISCH VELDWERK -->
+    <section id="veldwerk" class="page">
+      <div class="page-header">
+        <h1>Ecologisch veldwerk</h1>
+        <p>
+          Sinds 2019 voert Bureau Winterkoning broedvogelmonitoring uit in Nederland en Duitsland en SNL-monitoring van dagvlinders, sprinkhanen en libellen, met heldere rapportages als resultaat. Daarnaast voer ik soortgroepgerichte onderzoeken uit in het kader van de Omgevingswet, zoals monitoring van steenuilen en vleermuisonderzoek.
+        </p>
+      </div>
+
+      <div class="info-cards">
+        <article class="card card-1">
+          <h2>Vogelonderzoek</h2>
+          <p>
+            Broedvogelonderzoek (BMP), wintervogeltellingen en doelsoortinventarisaties,
+            inclusief digitale verwerking en overzichtelijke kaartlagen.
+          </p>
+        </article>
+
+        <article class="card card-2">
+          <h2>Libellen &amp; andere soortgroepen</h2>
+          <p>
+            Soortgerichte inventarisaties van onder andere libellen, vlinders en amfibieën,
+            met aandacht voor leefgebied en beheeradvies.
+          </p>
+        </article>
+
+        <article class="card card-3">
+          <h2>Rapportage &amp; advies</h2>
+          <p>
+            Heldere rapportages met praktische aanbevelingen, geschikt voor vergunningstrajecten,
+            beheerplannen of beleidsondersteuning.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXCURSIES -->
+    <section id="excursies" class="page">
+      <div class="page-header">
+        <h1>Excursies</h1>
+        <p>
+          Natuur dichtbij huis wordt verrassend rijk als je leert kijken en luisteren. 
+          Bureau Winterkoning organiseert excursies voor kleine groepen, organisaties en particulieren.
+        </p>
+      </div>
+
+      <div class="info-cards">
+        <article class="card card-1">
+          <h2>Vogelexcursies</h2>
+          <p>
+            Samen stap voor stap leren vogels herkennen op geluid en uiterlijk, in rustige
+            groepen met ruimte voor vragen en persoonlijke aandacht.
+          </p>
+        </article>
+
+        <article class="card card-2">
+          <h2>Themawandelingen</h2>
+          <p>
+            Van libellen langs het water tot wintervogels in het weiland: thematische
+            wandelingen afgestemd op seizoen en gebied.
+          </p>
+        </article>
+
+        <article class="card card-3">
+          <h2>Excursies voor organisaties</h2>
+          <p>
+            Bedrijfsuitjes, studiedagen of teamdagen in de natuur, waarin beleving,
+            rust en verwondering centraal staan.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- VOGELREIZEN -->
+    <section id="vogelreizen" class="page">
+      <div class="page-header">
+        <h1>Vogelreizen</h1>
+        <p>
+          Kleinschalige vogelreizen met aandacht voor rust, ruimte en verdieping.
+          Geen soorten afvinken, maar bewust kijken, luisteren en beleven.
+        </p>
+      </div>
+
+      <div class="info-cards">
+        <article class="card card-1">
+          <h2>Catalonië, 9-16 mei 2026</h2>
+          <p>
+            Excursies van de Mediterrane kust tot de hoge Pyreneeën, met een rijke mix van 
+            soorten en landschappen.
+          </p>
+        </article>
+
+        <article class="card card-2">
+          <h2>Kleine groepen</h2>
+          <p>
+            Kleine groepen zorgen voor meer ruimte aan elke deelnemer, betere observaties
+            en meer flexibiliteit in het veld.
+          </p>
+        </article>
+
+        <article class="card card-3">
+          <h2>Meer dan soortenlijstjes</h2>
+          <p>
+            Aandacht voor gedrag, ecologie en samenhang in het landschap, zodat de reis
+            meer wordt dan het afvinken van soorten.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- OVER -->
+    <section id="over" class="page">
+      <div class="page-header">
+        <h1>Bureau Winterkoning</h1>
+        <p>
+          Bureau Winterkoning is de eenmanszaak van Stefan Slings, die ecologisch veldwerk combineert met
+          liefde voor natuurbeleving.
+        </p>
+      </div>
+
+      <div class="info-cards">
+        <article class="card card-1">
+          <h2>Werkwijze</h2>
+          <p>
+            Zorgvuldig, rustig en betrokken. In het veld is er aandacht voor detail,
+            in de rapportage voor helderheid en toepasbaarheid.
+          </p>
+        </article>
+
+        <article class="card card-2">
+          <h2>Achtergrond</h2>
+          <p>
+            Ervaring met vogel- en libellenonderzoek, natuurbeheer en natuureducatie,
+            gecombineerd met oog voor de mens achter de vraag.
+          </p>
+        </article>
+
+        <article class="card card-3">
+          <h2>Samenwerking</h2>
+          <p>
+            Mogelijkheid tot samenwerking met andere bureaus en experts voor grotere
+            of specialistische projecten.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="page">
+      <div class="page-header">
+        <h1>Contact</h1>
+        <p>
+          Heb je een vraag over ecologisch onderzoek, een excursie of een vogelreis?
+          Neem gerust contact op voor een vrijblijvende verkenning.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h2>Direct contact</h2>
+          <p><strong>E-mail:</strong> <a href="mailto:info@bureauwinterkoning.nl">info@bureauwinterkoning.nl</a></p>
+          <p><strong>Telefoon:</strong> 06&nbsp;000&nbsp;000&nbsp;00</p>
+          <p><strong>Bereikbaarheid:</strong> bij voorkeur op werkdagen overdag.</p>
+        </div>
+
+        <div class="contact-card">
+          <h2>Contactformulier (voorbeeld)</h2>
+          <p>
+            Je kunt hier later een echt formulier plaatsen.
+            Voor nu kun je volstaan met contact per e-mail of telefoon.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-cards" style="margin-top: 2rem;">
+        <article class="card card-1">
+          <h2>Offertes</h2>
+          <p>
+            Vraag gerust een offerte aan met een korte beschrijving van het gebied,
+            je vraag en de gewenste planning.
+          </p>
+        </article>
+
+        <article class="card card-2">
+          <h2>Beschikbaarheid</h2>
+          <p>
+            Veldwerk is seizoensgebonden. Tijdig contact opnemen vergroot de kans dat
+            onderzoek kan aansluiten op de juiste periode.
+          </p>
+        </article>
+
+        <article class="card card-3">
+          <h2>Samen sparren</h2>
+          <p>
+            Twijfel je welke aanpak passend is? Een kort telefoongesprek helpt vaak
+            om de vraag scherp te krijgen.
+          </p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-inner">
+      <div class="footer-block">
+        <h3>Adresgegevens</h3>
+        <p>Bureau Winterkoning</p>
+        <p>Vroegeling 5</p>
+        <p>1964 KP Heemskerk</p>
+      </div>
+
+      <div class="footer-block">
+        <h3>Contact</h3>
+        <p>E-mail: <a href="mailto:info@bureauwinterkoning.nl">info@bureauwinterkoning.nl</a></p>
+      </div>
+
+      <div class="footer-block">
+        <h3>Bedrijfsgegevens</h3>
+        <p>KvK: 60261781</p>
+        <p>BTW: NL002127265B63</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="subfooter">
+    &copy; <span id="year"></span> Bureau Winterkoning. Alle rechten voorbehouden.
+  </div>
+
+  <script>
+    // Jaar in subfooter
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Pagina-switching
+    const navLinks = document.querySelectorAll('.nav-link');
+    const pages = document.querySelectorAll('.page');
+    const nav = document.querySelector('.main-nav');
+    const toggleBtn = document.querySelector('.nav-toggle');
+
+    function setActivePage(pageId) {
+      pages.forEach(section => {
+        section.classList.toggle('active', section.id === pageId);
+      });
+
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.page === pageId);
+      });
+
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const pageId = link.dataset.page;
+        setActivePage(pageId);
+
+        // Sluit mobiel menu na klik
+        if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+        }
+      });
+    });
+
+    // Mobiel menu toggle
+    toggleBtn.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
